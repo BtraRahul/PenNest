@@ -80,28 +80,32 @@ This project is a full-stack web application for a blog platform that allows use
    git clone https://github.com/yourusername/blog-platform.git
    cd blog-platform
    ```
+2. Navigate to the `backend` directory:
+   ```bash
+   cd backend
+   ```
 
-2. Install backend dependencies:
+3. Install backend dependencies:
    ```bash
    npm install
    ```
 
-3. Create a `.env` file and add your MongoDB connection string:
+4. Create a `.env` file and add your MongoDB connection string:
    ```
    MONGO_URI=your_mongodb_connection_string
    PORT=5555
    ```
 
-4. Start the backend server:
+5. Start the backend server:
    ```bash
    npm start
    ```
 
 #### Frontend
 
-1. Navigate to the `client` directory:
+1. Navigate to the `frontend` directory:
    ```bash
-   cd client
+   cd frontend
    ```
 
 2. Install frontend dependencies:
