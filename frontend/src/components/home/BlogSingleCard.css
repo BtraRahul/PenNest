@@ -1,0 +1,72 @@
+.dark {
+  .container {
+    color: white;
+    position: relative;
+    font-family: sans-serif;
+  }
+
+  .container::before,
+  .container::after {
+    content: "";
+    background-color: #fab5704c;
+    position: absolute;
+  }
+
+  .container::after {
+    content: "";
+    position: absolute;
+    height: 3rem;
+    top: 8%;
+    right: 5%;
+    border: 1px solid;
+  }
+
+  .box {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    border-radius: 0.7rem;
+    transition: all ease 0.3s;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  .box div strong {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .box div p {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+
+  .box div span {
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+
+  .box div span:nth-child(3) {
+    font-weight: 500;
+    margin-right: 0.2rem;
+  }
+
+  .box:hover {
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+    border: 1px solid rgba(255, 255, 255, 0.454);
+  }
+}
