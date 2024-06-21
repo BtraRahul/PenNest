@@ -1,6 +1,6 @@
 # Blog Platform
 
-This project is a full-stack web application for a blog platform that allows users to create, view, search, and interact with blog posts. The platform is designed with a modern tech stack, featuring a React-based frontend and an Express.js backend, integrated with MongoDB for data storage and GridFS for image storage.
+This project is a full-stack web application for a blog platform that allows users to create, view, search, and interact with blog posts. The platform is designed with a modern tech stack, featuring a React-based frontend and an Express.js backend, integrated with MongoDB for data storage and Firebase for image storage.
 
 ## Features
 
