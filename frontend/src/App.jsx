@@ -13,9 +13,10 @@ import LogoutButton from "./components/LogoutButton";
 import SearchResults from "./components/SearchResults";
 import BlogDetail from "./components/home/BlogDetail";
 import UserProfile from "./components/home/UserProfile";
-
+import axios from "axios";
 
 function App() {
+  axios.defaults.withCredentials = true;
   return (
     <>
       <div className="">
