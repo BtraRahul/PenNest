@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+
 import express from "express";
 // import { PORT, mongoDbURL } from "./config.js";
 import router from "./routes/blogRoutes.js";
@@ -11,33 +12,18 @@ import mongoose from "mongoose";
 // import commentRoutes from "./routes/commentRoutes.js";
 
 const port = process.env.SERVER_PORT;
-const mongoDbURL = process.env.mongoDbURL;
-const API_BASE_URL = process.env.API_BASE_URL;
-const CLIENT_URL = process.env.CLIENT_URL;
+const mongoDbURL=process.env.mongoDbURL
+const API_BASE_URL=process.env.API_BASE_URL
+const CLIENT_URL=process.env.CLIENT_URL
 const app = express();
+
 
 //option 1: allow all origins with default of cors(*)
 // app.use(cors());
-// Allow only specific origins
-const allowedOrigins = [
-  CLIENT_URL,
-  "localhost:5555",
-  "localhost:5173",
-  "https://pen-nest.vercel.app",
-  "https://pen-nest-backend.vercel.app",
-  "https://pen-nest-backend.vercel.app/blogs",
-];
-
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
     credentials: true,
+    origin: [CLIENT_URL, API_BASE_URL],
   })
 );
 
