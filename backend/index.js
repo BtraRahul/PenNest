@@ -17,21 +17,25 @@ const CLIENT_URL = process.env.CLIENT_URL;
 const app = express();
 
 //option 1: allow all origins with default of cors(*)
-app.use(cors());
 app.use(
   cors({
-    credentials: true,
-    origin: [
-      "*",
-      "http://localhost:5173",
-      "http://localhost:5555",
-      "https://pen-nest.vercel.app/",
-      API_BASE_URL,
-      CLIENT_URL,
-    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: [
+//       "*",
+//       "http://localhost:5173",
+//       "http://localhost:5555",
+//       "https://pen-nest.vercel.app/",
+//       API_BASE_URL,
+//       CLIENT_URL,
+//     ],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
