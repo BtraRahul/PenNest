@@ -21,9 +21,11 @@ app.use(cors());
 app.use(
   cors({
     credentials: true,
-    origin: ["*",
+    origin: [
+      "*",
       "http://localhost:5173",
       "http://localhost:5555",
+      "https://pen-nest.vercel.app/",
       API_BASE_URL,
       CLIENT_URL,
     ],
