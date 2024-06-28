@@ -19,12 +19,14 @@ const app = express();
 //option 1: allow all origins with default of cors(*)
 app.use(
   cors({
+    credentials: true,
+    origin: ["*"],
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 // app.use(
-//   cors({
 //     credentials: true,
+//   cors({
 //     origin: [
 //       "*",
 //       "http://localhost:5173",
