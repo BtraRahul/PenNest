@@ -17,13 +17,13 @@ const CLIENT_URL = process.env.CLIENT_URL;
 const app = express();
 
 //option 1: allow all origins with default of cors(*)
-// app.use(cors());
-app.use(
-  cors({
-    credentials: true,
-    origin: [CLIENT_URL, API_BASE_URL],
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: [CLIENT_URL, API_BASE_URL],
+//   })
+// );
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
