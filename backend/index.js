@@ -17,22 +17,27 @@ const CLIENT_URL = process.env.CLIENT_URL;
 const app = express();
 
 //option 1: allow all origins with default of cors(*)
-app.use(cors());
+// app.use(cors());
 // Allow only specific origins
-// const allowedOrigins = [CLIENT_URL, "https://pen-nest.vercel.app"];
+const allowedOrigins = [
+  CLIENT_URL,
+  "https://pen-nest.vercel.app",
+  "https://pen-nest-backend.vercel.app",
+  "https://pen-nest-backend.vercel.app/blogs",
+];
 
-// app.use(
-//   cors({
-//     origin: (origin, callback) => {
-//       if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
