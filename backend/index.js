@@ -18,18 +18,18 @@ const app = express();
 
 //option 1: allow all origins with default of cors(*)
 app.use(cors());
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: ["*",
-//       "http://localhost:5173",
-//       "http://localhost:5555",
-//       API_BASE_URL,
-//       CLIENT_URL,
-//     ],
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//   })
-// );
+app.use(
+  cors({
+    credentials: true,
+    origin: ["*",
+      "http://localhost:5173",
+      "http://localhost:5555",
+      API_BASE_URL,
+      CLIENT_URL,
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
