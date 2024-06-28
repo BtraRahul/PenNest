@@ -13,8 +13,6 @@ import mongoose from "mongoose";
 
 const port = process.env.SERVER_PORT;
 const mongoDbURL=process.env.mongoDbURL
-const API_BASE_URL=process.env.API_BASE_URL
-const CLIENT_URL=process.env.CLIENT_URL
 const app = express();
 
 
@@ -23,7 +21,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [CLIENT_URL, API_BASE_URL],
+    origin: ["http://localhost:5173", "http://localhost:5555"],
   })
 );
 
