@@ -1,11 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { API_BASE_URL } from "./config";
 
 export const logout = async () => {
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch("http://localhost:5555/blogs/auth/logout", {
+    const response = await fetch(`${API_BASE_URL}/blogs/auth/logout`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -27,7 +26,7 @@ export const logout = async () => {
 
 export const login = async (email, password) => {
   try {
-    const response = await fetch("http://localhost:5555/blogs/auth/login", {
+    const response = await fetch(`${API_BASE_URL}/blogs/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +73,7 @@ export const register = async (name, email, password, profilePic) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:5555/blogs/auth/register",
+      `${API_BASE_URL}/blogs/auth/register`,
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },
@@ -82,7 +81,7 @@ export const register = async (name, email, password, profilePic) => {
     );
 
     //incase i want to use fetch req
-    // const response = await fetch("http://localhost:5555/blogs/auth/register", {
+    // const response = await fetch("${API_BASE_URL}/blogs/auth/register", {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { MdOutlineAddBox } from "react-icons/md";
 import Spinner from "@/components/assets/icons/Spinner";
 import BlogsCard from "@/components/home/BlogsCard";
+import { API_BASE_URL } from "@/utils/config";
 // import BlogsCard from "../components/home/BlogsCard.jsx";
 
 function Home() {
@@ -14,7 +15,7 @@ function Home() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5555/blogs/")
+      .get(`${API_BASE_URL}/blogs/`)
       .then((res) => {
         console.log(res.data.data);
         setBlogs(res.data.data);

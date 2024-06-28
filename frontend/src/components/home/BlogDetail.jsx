@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -5,6 +6,7 @@ import Spinner from "../assets/icons/Spinner";
 import DropdownMenu from "./DropdownMenu";
 import { BiComment, BiCommentAdd } from "react-icons/bi";
 import { HeartFilledIcon } from "@radix-ui/react-icons";
+import { API_BASE_URL } from "@/utils/config";
 
 const BlogDetail = () => {
   const userData = JSON.parse(localStorage.getItem("user")); // Parse user data from local storage
@@ -19,7 +21,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:5555/blogs/${id}`);
+        const response = await axios.get(`${API_BASE_URL}/blogs/${id}`);
         setBlog(response.data);
         setLoading(false);
       } catch (error) {
@@ -39,7 +41,7 @@ const BlogDetail = () => {
   const fetchComments = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5555/blogs/${id}/comments`
+        `${API_BASE_URL}/blogs/${id}/comments`
       );
       setComments(response.data);
     } catch (error) {
@@ -50,7 +52,7 @@ const BlogDetail = () => {
   const handleDeleteComment = async (commentId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5555/blogs/${blog._id}/comments/${commentId}`
+        `${API_BASE_URL}/blogs/${blog._id}/comments/${commentId}`
       );
       setComments(response.data);
     } catch (error) {
@@ -64,7 +66,7 @@ const BlogDetail = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5555/blogs/${id}/comments`,
+        `${API_BASE_URL}/blogs/${id}/comments`,
         {
           author: userData.email, // Replace with actual user data
           text: newComment,
@@ -97,13 +99,13 @@ const BlogDetail = () => {
       <div className="container py-20">
         {blog.coverImageUrl ? (
           <img
-            src={`http://localhost:5555/${blog.coverImageUrl}`}
+            src={`${API_BASE_URL}/${blog.coverImageUrl}`}
             alt="Cover"
             className="w-full h-72 object-cover mb-4 rounded-lg"
           />
         ) : (
           <img
-            src={`http://localhost:5555/uploads/Batra-27.jpg`}
+            src={`${API_BASE_URL}/uploads/Batra-27.jpg`}
             alt="Cover"
             className="w-full h-90 object-cover mb-4 rounded-lg"
           />

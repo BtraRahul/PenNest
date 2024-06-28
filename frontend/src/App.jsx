@@ -14,6 +14,7 @@ import SearchResults from "./components/SearchResults";
 import BlogDetail from "./components/home/BlogDetail";
 import UserProfile from "./components/home/UserProfile";
 
+
 function App() {
   return (
     <>

@@ -7,6 +7,7 @@ import { HeartFilledIcon, HeartIcon } from "@radix-ui/react-icons";
 import DropdownMenu from "./DropdownMenu";
 import axios from "axios";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "@/utils/config";
 
 const BlogSingleCard = ({ blog, showComment = true, extraClass = {} }) => {
   const userData = JSON.parse(localStorage.getItem("user")); // Parse user data from local storage
@@ -26,7 +27,7 @@ const BlogSingleCard = ({ blog, showComment = true, extraClass = {} }) => {
   const fetchComments = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5555/blogs/${blog._id}/comments`
+        `${API_BASE_URL}/blogs/${blog._id}/comments`
       );
       setComments(response.data);
     } catch (error) {
@@ -40,7 +41,7 @@ const BlogSingleCard = ({ blog, showComment = true, extraClass = {} }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5555/blogs/${blog._id}/comments`,
+        `${API_BASE_URL}/blogs/${blog._id}/comments`,
         {
           author: userData.email, // Replace with actual user data
           text: newComment,
@@ -58,7 +59,7 @@ const BlogSingleCard = ({ blog, showComment = true, extraClass = {} }) => {
     if (!hasLiked) {
       try {
         const response = await axios.put(
-          `http://localhost:5555/blogs/${blog._id}/like`
+          `${API_BASE_URL}/blogs/${blog._id}/like`
         );
         setLikes(response.data.likes);
         setHasLiked(true); // Prevent multiple likes from the same user
@@ -68,7 +69,7 @@ const BlogSingleCard = ({ blog, showComment = true, extraClass = {} }) => {
     } else {
       try {
         const response = await axios.put(
-          `http://localhost:5555/blogs/${blog._id}/unlike`
+          `${API_BASE_URL}/blogs/${blog._id}/unlike`
         );
         setLikes(response.data.likes);
         setHasLiked(false);
@@ -103,13 +104,13 @@ const BlogSingleCard = ({ blog, showComment = true, extraClass = {} }) => {
         >
           {blog.coverImageUrl ? (
             <img
-              src={`http://localhost:5555/${blog.coverImageUrl}`}
+              src={`${API_BASE_URL}/${blog.coverImageUrl}`}
               alt="Cover"
               className="w-full h-64 object-cover mb-4 rounded-lg"
             />
           ) : (
             <img
-              src={`http://localhost:5555/uploads/Batra-27.jpg`}
+              src={`${API_BASE_URL}/uploads/Batra-27.jpg`}
               alt="Cover"
               className="w-full h-80 object-cover mb-4 rounded-lg"
             />

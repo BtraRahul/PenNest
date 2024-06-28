@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { API_BASE_URL } from "@/utils/config";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -14,7 +15,7 @@ function DeleteBlog() {
   useEffect(() => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/blogs/${id}`)
+      .delete(`${API_BASE_URL}/blogs/${id}`)
       .then((res) => {
         setLoading(false), navigate("/");
       })

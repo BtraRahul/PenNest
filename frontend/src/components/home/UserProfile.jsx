@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 // UserProfile.jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import BlogSingleCard from "./BlogSingleCard";
 import Spinner from "../assets/icons/Spinner";
+import { API_BASE_URL } from "@/utils/config";
 
 const UserProfile = () => {
   const { userId } = useParams();
@@ -18,7 +20,7 @@ const UserProfile = () => {
         setUser(userData);
         console.log(user);
         const blogsResponse = await axios.get(
-          `http://localhost:5555/blogs/author/${userData.email}`
+          `${API_BASE_URL}/blogs/author/${userData.email}`
         );
         setBlogs(blogsResponse.data.data);
         setLoading(false);
@@ -67,7 +69,7 @@ const UserProfile = () => {
         <div className="profile flex flex-row  items-center md:flex-row md:items-start">
           <img
             // src={`https://images.pexels.com/photos/20741814/pexels-photo-20741814/free-photo-of-woman-on-meadow-with-flowers-in-countryside.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`}``
-            src={`http://localhost:5555/${user.profilePicUrl}`}
+            src={`${API_BASE_URL}/${user.profilePicUrl}`}
             alt="Profile"
             className="h-40 w-40 object-cover rounded mb-4 md:mr-6"
           />

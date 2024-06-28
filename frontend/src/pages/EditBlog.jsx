@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BackButton from "@/components/ui/BackButton";
 import Spinner from "@/components/assets/icons/Spinner";
+import { API_BASE_URL } from "@/utils/config";
 
 const EditBlog = () => {
   const userData = JSON.parse(localStorage.getItem("user")); // Parse user data from local storage
@@ -20,7 +21,7 @@ const EditBlog = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/blogs/${id}`)
+      .get(`${API_BASE_URL}/blogs/${id}`)
       .then((res) => {
         setAuthor(res.data.author);
         setTitle(res.data.title);
@@ -41,7 +42,7 @@ const EditBlog = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5555/blogs/${id}`, blog)
+      .put(`${API_BASE_URL}/blogs/${id}`, blog)
       .then(setLoading(false), navigate("/"))
       .catch((e) => {
         console.log(e);

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // /* eslint-disable no-unused-vars */
 // import Spinner from "@/components/assets/icons/Spinner";
 // import axios from "axios";
@@ -32,7 +33,7 @@
 //   //   console.log(userData);
 //   //   setLoading(true);
 //   //   axios
-//   //     .post(`http://localhost:5555/blogs/`, blog)
+//   //     .post(`${API_BASE_URL}/blogs/`, blog)
 //   //     .then(() => {
 //   //       setLoading(false);
 //   //       navigate("/");
@@ -63,7 +64,7 @@
 
 //     setLoading(true);
 //     try {
-//       await axios.post("http://localhost:5555/blogs", formData, {
+//       await axios.post("${API_BASE_URL}/blogs", formData, {
 //         headers: { "Content-Type": "multipart/form-data" },
 //       });
 //       setLoading(false);
@@ -152,6 +153,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
 import "../index.css";
+import { API_BASE_URL } from "@/utils/config";
 
 function CreateBlogs() {
   const userData = JSON.parse(localStorage.getItem("user"));
@@ -191,14 +193,14 @@ function CreateBlogs() {
     setLoading(true);
     try {
 
-      // await fetch("http://localhost:5555/blogs",{
+      // await fetch("${API_BASE_URL}/blogs",{
       //   method: "POST",
       //   body: formData,
       //   headers: {
       //     "Content-Type": "multipart/form-data",
       //   },
       // })
-      await axios.post("http://localhost:5555/blogs", formData, {
+      await axios.post(`${API_BASE_URL}/blogs`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setLoading(false);

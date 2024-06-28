@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import BlogSingleCard from "./home/BlogSingleCard";
+import { API_BASE_URL } from "@/utils/config";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -17,7 +19,7 @@ const SearchResults = () => {
       try {
         console.log("fetching data");
         const response = await axios.get(
-          `http://localhost:5555/blogs/search?query=${query}`
+          `${API_BASE_URL}/blogs/search?query=${query}`
         );
         console.log("hello again!");
         setResults(response.data);

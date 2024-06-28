@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
-import { PORT, mongoDbURL } from "./config.js";
+// import { PORT, mongoDbURL } from "./config.js";
 import router from "./routes/blogRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 
@@ -7,6 +10,10 @@ import cors from "cors";
 import mongoose from "mongoose";
 // import commentRoutes from "./routes/commentRoutes.js";
 
+const port = process.env.SERVER_PORT;
+const mongoDbURL = process.env.mongoDbURL;
+const API_BASE_URL = process.env.API_BASE_URL;
+const CLIENT_URL = process.env.CLIENT_URL;
 const app = express();
 
 //option 1: allow all origins with default of cors(*)
@@ -14,7 +21,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:5173", "http://localhost:5555"],
+    origin: [CLIENT_URL, API_BASE_URL],
   })
 );
 
@@ -42,7 +49,7 @@ mongoose
   .connect(mongoDbURL)
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(PORT, () => {
+    app.listen(port, () => {
       console.log("Server is running on port 5555");
     });
   })
