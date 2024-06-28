@@ -27,6 +27,7 @@ app.use(
       API_BASE_URL,
       CLIENT_URL,
     ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
