@@ -6,5 +6,13 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ]
+  ],
+  "headers": {
+    "/**": [
+      {
+        "key": "Access-Control-Allow-Origin",
+        "value": "*"
+      }
+    ]
+  }
 }
