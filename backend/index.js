@@ -21,6 +21,8 @@ const app = express();
 // Allow only specific origins
 const allowedOrigins = [
   CLIENT_URL,
+  "localhost:5555",
+  "localhost:5173",
   "https://pen-nest.vercel.app",
   "https://pen-nest-backend.vercel.app",
   "https://pen-nest-backend.vercel.app/blogs",
