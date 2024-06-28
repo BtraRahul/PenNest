@@ -17,13 +17,13 @@ const app = express();
 
 
 //option 1: allow all origins with default of cors(*)
-// app.use(cors());
-app.use(
-  cors({
-    credentials: true,
-    origin: ["http://localhost:5173", "http://localhost:5555"],
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: ["http://localhost:5173", "http://localhost:5555"],
+//   })
+// );
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
