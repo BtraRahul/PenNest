@@ -42,11 +42,28 @@ const NavBarHeader = () => {
           }
           .header li {
             margin: 0 10px;
-          }
-          .content {
-            padding-top: 40px; /* Adjust based on header height */
-          }
+            }
+            .content {
+              padding-top: 40px; /* Adjust based on header height */
+              }
+              
+  @media (max-width: 450px) {
+            .header {
+            font-size: 1.2rem;
 
+              flex-direction: column;
+              align-items: center;
+              height: 150px;
+              }
+              .search{
+              padding-top: 40px; 
+              }
+              .search-form {
+              padding: 1rem;
+              width: 50%;
+              margin-bottom: 1rem;
+            }
+          }
 
 
   .search {
@@ -70,7 +87,7 @@ const NavBarHeader = () => {
     font-size: 1rem;
     font-weight: 300;
 
-    width: 18rem;
+    width: 100%;
  
     margin-right: 0.2rem;
     margin-left: 0.2rem;
@@ -87,7 +104,7 @@ const NavBarHeader = () => {
       </style>
 
       <nav className="header">
-        <h1>BLOGIT</h1>
+        <h1 className="text-3xl mb-1 text-green-300">PenNest</h1>
         {/* Search */}
         <form onSubmit={handleSearch} className="flex flex-row items-center">
           <input

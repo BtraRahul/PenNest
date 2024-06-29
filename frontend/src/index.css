@@ -9,22 +9,6 @@
     font-family: sans-serif;
   }
 
-  /* .container::before,
-  .container::after {
-    content: "";
-    background-color: #fab5704c;
-    position: absolute;
-  } */
-
-  /* .container::after {
-    content: "";
-    position: absolute;
-    height: 3rem;
-    top: 8%;
-    right: 5%;
-    border: 1px solid;
-  } */
-
   .box {
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.074);
@@ -42,7 +26,7 @@
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.5rem; /* Adjusted for smaller screens */
     font-weight: 500;
     letter-spacing: 0.1em;
   }

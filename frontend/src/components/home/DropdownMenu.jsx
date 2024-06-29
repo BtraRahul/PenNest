@@ -25,7 +25,7 @@ const DropdownMenu = ({ blogId, blogAuthor }) => {
       <div>
         <button
           type="button"
-          className="inline-flex justify-center w-full rounded-md border shadow-sm px-4 py-2 bg-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          className="inline-flex justify-center w-20 rounded-md border shadow-sm px-4 py-2 bg-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
           onClick={toggleDropdown}
           aria-expanded={isOpen}
           aria-haspopup="true"

@@ -96,7 +96,7 @@ const BlogSingleCard = ({ blog, showComment = true, extraClass = {} }) => {
    transition: box-shadow 0.3s ease;
 }
 `}</style>
-      <div className="container">
+      <div className="container px-0">
         <div
           id="card"
           key={blog._id}
