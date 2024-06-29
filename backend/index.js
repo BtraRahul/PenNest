@@ -17,13 +17,18 @@ const CLIENT_URL = process.env.CLIENT_URL;
 const app = express();
 
 //option 1: allow all origins with default of cors(*)
-const allowedOrigins = [process.env.CLIENT_URL, "https://pen-nest.vercel.app"];
 
+// app.use(
+//   cors({
+//     origin: ["localhost:5555", "localhost:5173"],
+//     credentials: true,
+//   })
+// );
 app.use((req, res, next) => {
   const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
+  // if (allowedOrigins.includes(origin)) {
+  res.setHeader("Access-Control-Allow-Origin", origin);
+  // }
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header(
     "Access-Control-Allow-Headers",
@@ -35,30 +40,20 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
     credentials: true,
+    origin: [
+      "*/*",
+      "*",
+      "http://localhost:5173",
+      "http://localhost:5555",
+      "https://pen-nest.vercel.app/",
+      "https://pen-nest.vercel.app/",
+      API_BASE_URL,
+      CLIENT_URL,
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
-// app.use(
-//     credentials: true,
-//   cors({
-//     origin: [
-//       "*",
-//       "http://localhost:5173",
-//       "http://localhost:5555",
-//       "https://pen-nest.vercel.app/",
-//       API_BASE_URL,
-//       CLIENT_URL,
-//     ],
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//   })
-// );
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
